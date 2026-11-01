@@ -5,9 +5,20 @@
     <loc>https://qaraqoyunlutechnology.az/</loc>
     <xhtml:link rel="alternate" hreflang="az" href="https://qaraqoyunlutechnology.az/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://qaraqoyunlutechnology.az/?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://qaraqoyunlutechnology.az/?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qaraqoyunlutechnology.az/"/>
     <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://qaraqoyunlutechnology.az/?lang=ru</loc>
+    <xhtml:link rel="alternate" hreflang="az" href="https://qaraqoyunlutechnology.az/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qaraqoyunlutechnology.az/?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://qaraqoyunlutechnology.az/?lang=ru"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qaraqoyunlutechnology.az/"/>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 </urlset>

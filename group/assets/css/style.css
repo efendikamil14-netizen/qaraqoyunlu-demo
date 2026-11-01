@@ -246,10 +246,10 @@ body { color: var(--ink); }
 .brand__mark { flex: none; width: 40px; height: auto; aspect-ratio: 1812 / 1422; fill: currentColor; }
 .brand__word { display: flex; flex-direction: column; line-height: 1; }
 .brand__name { font-family: var(--font-display); font-stretch: 125%; font-weight: 800; font-size: 15px; letter-spacing: 0.02em; text-transform: uppercase; }
-.brand__sub { margin-top: 4px; font-family: var(--font-display); font-stretch: 108%; font-weight: 600; font-size: 9.5px; letter-spacing: 0.42em; text-transform: uppercase; color: var(--accent-text); }
+.brand__sub { margin-top: 3px; font-family: var(--font-display); font-stretch: 125%; font-weight: 800; font-size: 15px; letter-spacing: 0.02em; text-transform: uppercase; }
 
 /* header mark draws itself on load */
-.site-header .brand__mark { stroke: currentColor; stroke-width: 26; stroke-dasharray: 1; stroke-dashoffset: 1; fill-opacity: 0; animation: mark-draw 1.4s var(--ease-in-out) 0.2s forwards, mark-fill 0.6s ease 1.15s forwards; }
+.site-header .brand__mark { color: var(--accent); stroke: currentColor; stroke-width: 26; stroke-dasharray: 1; stroke-dashoffset: 1; fill-opacity: 0; animation: mark-draw 1.4s var(--ease-in-out) 0.2s forwards, mark-fill 0.6s ease 1.15s forwards; }
 @keyframes mark-draw { to { stroke-dashoffset: 0; } }
 @keyframes mark-fill { to { fill-opacity: 1; stroke-width: 0; } }
 
@@ -278,6 +278,7 @@ body { color: var(--ink); }
 .lang-switch button::after { content: ''; position: absolute; inset: -4px 0; } /* 44px tap target, 36px pill */
 .lang-switch button.is-active { background: var(--ink); color: var(--bg); }
 .lang-switch button:not(.is-active):hover { color: var(--ink); }
+.site-nav__extra .lang-switch { display: none; align-self: flex-start; margin-bottom: 24px; }
 
 .nav-toggle { display: none; position: relative; width: 48px; height: 48px; margin-right: -8px; }
 .nav-toggle__bar { position: absolute; left: 13px; right: 13px; height: 1.5px; background: currentColor; transition: transform 0.5s var(--ease-out); }
@@ -308,7 +309,6 @@ body { color: var(--ink); }
   .nav-open .lang-switch button.is-active { background: var(--on-dark); color: var(--dark); }
   .nav-open .lang-switch { box-shadow: inset 0 0 0 1px rgba(242, 238, 231, 0.3); }
   .nav-open .lang-switch button:not(.is-active) { color: var(--on-dark-soft); }
-  .nav-open .brand__sub { color: var(--accent-on-dark); }
   .nav-open .site-header__cta { background: var(--on-dark); color: var(--dark); }
   .nav-open { overflow: hidden; }
   .site-nav__list { flex-direction: column; gap: 0; }
@@ -352,7 +352,7 @@ body { color: var(--ink); }
 @media (max-width: 640px) {
   .site-header__cta { display: none; }
   .brand__mark { width: 36px; }
-  .brand__name { font-size: 13.5px; }
+  .brand__name, .brand__sub { font-size: 13.5px; }
   .site-header__actions { gap: 6px; }
 }
 @media (max-width: 400px) {
@@ -360,8 +360,9 @@ body { color: var(--ink); }
   .site-header__inner { gap: 10px; }
   .brand { gap: 10px; }
   .brand__mark { width: 32px; }
-  .brand__name { font-size: 12.5px; }
-  .lang-switch button { padding: 0 8px; } /* keeps the 44px minimum width */
+  .brand__name, .brand__sub { font-size: 12.5px; }
+  .site-header__actions .lang-switch { display: none; } /* three buttons no longer fit: they move into the menu */
+  .site-nav__extra .lang-switch { display: inline-flex; }
 }
 
 /* ===================================================================== HERO */
@@ -1136,7 +1137,6 @@ span.svc__toggle { cursor: default; } /* desktop: plain heading, every panel is 
 .footer__top { display: grid; grid-template-columns: 1.5fr 1fr 1.2fr 1fr; gap: 40px var(--col-gap); }
 .brand--light { color: var(--on-dark); margin-right: 0; }
 .brand--light .brand__mark { fill: var(--on-dark); }
-.brand--light .brand__sub { color: var(--accent-on-dark); }
 .footer__desc { margin-top: 20px; max-width: 340px; color: var(--on-dark-soft); font-size: 15.5px; }
 .footer__motto { margin-top: 18px; font-family: var(--font-display); font-stretch: 118%; font-weight: 700; font-size: 15px; letter-spacing: 0.02em; color: var(--accent-on-dark); }
 .footer__h { color: var(--on-dark-soft); margin-bottom: 16px; }

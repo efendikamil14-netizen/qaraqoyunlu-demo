@@ -2,10 +2,11 @@
  * Qaraqoyunlu — shared site core (vanilla JS, no dependencies).
  *
  * Features (all opt-in through data-attributes):
- *   i18n ............ [data-i18n="key"]           text/HTML swapped from window.I18N.en
+ *   i18n ............ [data-i18n="key"]           text/HTML swapped from window.I18N.en / .ru
  *                     [data-i18n-attr="attr:key; attr2:key2"]  attribute swap
- *                     [data-lang-switch="az|en"]  language buttons
+ *                     [data-lang-switch="az|en|ru"]  language buttons
  *                     'langchange' fires on document once every string is swapped
+ *   contacts ........ <html data-site="group">    phones, e-mail and social links saved in /admin/
  *   reveal .......... [data-reveal="up|down|left|right|fade|scale|clip"] [data-reveal-delay="120"]
  *                     [data-stagger] on a parent -> children get --i for staggered delays
  *   split text ...... [data-split]                 heading words animate in line-by-line
@@ -25,7 +26,7 @@
  *   perf ............ [data-pause-offscreen]       endless CSS animations inside pause off-screen
  *
  * Azerbaijani text lives in the HTML (default, indexed by search engines).
- * English text lives in assets/js/i18n.js as window.I18N = { en: { key: "..." } }.
+ * English and Russian live in i18n.js as window.I18N = { en: { key: "..." }, ru: { ... } }.
  */
 (function () {
   'use strict';
@@ -34,6 +35,7 @@
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
   var STORAGE_KEY = 'qq-lang';
+  var LANGS = ['az', 'en', 'ru'];
 
   root.classList.add('js');
   if (reduceMotion) root.classList.add('reduce-motion');
@@ -167,10 +169,10 @@
 
   function initialLang() {
     var fromUrl = new URLSearchParams(location.search).get('lang');
-    if (fromUrl === 'az' || fromUrl === 'en') return fromUrl;
+    if (LANGS.indexOf(fromUrl) > -1) return fromUrl;
     try {
       var saved = localStorage.getItem(STORAGE_KEY);
-      if (saved === 'az' || saved === 'en') return saved;
+      if (LANGS.indexOf(saved) > -1) return saved;
     } catch (e) { /* storage unavailable */ }
     return 'az';
   }
@@ -541,9 +543,7 @@
 
   function formText(form) {
     var lines = [];
-    var intro = form.getAttribute('data-wa-intro');
-    var introEn = form.getAttribute('data-wa-intro-en');
-    lines.push(currentLang === 'en' && introEn ? introEn : (intro || ''));
+    lines.push(form.getAttribute('data-wa-intro-' + currentLang) || form.getAttribute('data-wa-intro') || '');
     form.querySelectorAll('input, select, textarea').forEach(function (f) {
       if (!f.name || f.type === 'hidden' || f.type === 'submit' || !f.value.trim()) return;
       var label = form.querySelector('label[for="' + f.id + '"]');
@@ -565,7 +565,7 @@
     form.querySelectorAll('[data-mail-to]').forEach(function (btn) {
       btn.addEventListener('click', function () {
         if (!form.reportValidity()) return;
-        var subject = currentLang === 'en' ? 'Website enquiry' : 'Saytdan müraciət';
+        var subject = { en: 'Website enquiry', ru: 'Заявка с сайта' }[currentLang] || 'Saytdan müraciət';
         location.href = 'mailto:' + btn.getAttribute('data-mail-to') +
           '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(formText(form));
       });
@@ -588,8 +588,120 @@
 
   document.querySelectorAll('[data-year]').forEach(function (el) { el.textContent = new Date().getFullYear(); });
 
+  /* ------------------------------------------------------------ contacts */
+
+  // Phones, WhatsApp, e-mail and social links the client edits in /admin/.
+  // contacts.js holds the defaults (the values written in this HTML) and, on
+  // Cloudflare, the saved values too. This runs before the first language pass, so the
+  // new values count as the originals. Nothing saved: the page stays as written.
+  function digits(v) { return String(v).replace(/\D/g, ''); }
+  function prettyPhone(v) {
+    var d = digits(v);
+    return d.length === 12 && d.indexOf('994') === 0
+      ? '+994 ' + d.slice(3, 5) + ' ' + d.slice(5, 8) + ' ' + d.slice(8, 10) + ' ' + d.slice(10)
+      : '+' + d;
+  }
+  function handleOf(url) { return '@' + url.replace(/\/+$/, '').split('/').pop().replace(/^@/, ''); }
+
+  // All at once, so two numbers that trade places do not overwrite each other.
+  function swapAll(str, map) {
+    var keys = Object.keys(map);
+    if (!keys.length) return str;
+    var re = new RegExp(keys.map(function (k) { return k.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }).join('|'), 'g');
+    return str.replace(re, function (m) { return map[m]; });
+  }
+
+  function hideContact(link) {
+    var row = link.closest('li');
+    var el = row && row.querySelectorAll('a').length === 1 ? row : link;
+    el.style.display = 'none';
+    if (link.nextElementSibling && link.nextElementSibling.tagName === 'BR') link.nextElementSibling.style.display = 'none';
+  }
+
+  function applyContacts() {
+    var data = window.QQ_CONTACTS, site = root.getAttribute('data-site');
+    var from = data && data.defaults && data.defaults[site];
+    var saved = data && data.saved && data.saved[site];
+    if (!from || !saved) return;
+    var to = {};
+    Object.keys(from).forEach(function (k) { to[k] = Object.prototype.hasOwnProperty.call(saved, k) ? saved[k] : from[k]; });
+
+    var phoneText = {}, waText = {}, handles = {};
+    var mainPhone = to.phones.filter(Boolean)[0];
+    from.phones.forEach(function (old, i) {
+      var now = to.phones[i] === undefined ? old : to.phones[i];
+      phoneText[prettyPhone(old)] = now ? prettyPhone(now) : '';
+      document.querySelectorAll('a[href="tel:' + old + '"]').forEach(function (a) {
+        if (now) { a.setAttribute('href', 'tel:+' + digits(now)); return; }
+        // the header and floating call buttons stay: they move to the first number
+        if (!a.closest('.fab__btn, .site-header__actions')) { hideContact(a); return; }
+        a.setAttribute('href', 'tel:+' + digits(mainPhone));
+        if (a.hasAttribute('aria-label')) a.setAttribute('aria-label', a.getAttribute('aria-label').replace(prettyPhone(old), prettyPhone(mainPhone)));
+        a.querySelectorAll('span').forEach(function (s) { s.textContent = s.textContent.replace(prettyPhone(old), prettyPhone(mainPhone)); });
+      });
+    });
+    waText[prettyPhone(from.whatsapp)] = prettyPhone(to.whatsapp);
+    document.querySelectorAll('a[href="https://wa.me/' + digits(from.whatsapp) + '"]').forEach(function (a) {
+      a.setAttribute('href', 'https://wa.me/' + digits(to.whatsapp));
+    });
+    document.querySelectorAll('[data-wa-number]').forEach(function (f) { f.setAttribute('data-wa-number', digits(to.whatsapp)); });
+
+    document.querySelectorAll('a[href^="mailto:' + from.email + '"]').forEach(function (a) {
+      a.setAttribute('href', a.getAttribute('href').replace(from.email, to.email));
+      if (a.textContent.indexOf(from.email) < 0) return;
+      var at = to.email.indexOf('@');
+      a.textContent = to.email.slice(0, at);
+      a.appendChild(document.createElement('wbr'));
+      a.appendChild(document.createTextNode(to.email.slice(at)));
+    });
+    document.querySelectorAll('[data-mail-to]').forEach(function (b) { b.setAttribute('data-mail-to', to.email); });
+
+    ['instagram', 'tiktok'].forEach(function (net) {
+      if (!from[net]) return;
+      if (to[net]) handles[handleOf(from[net])] = handleOf(to[net]);
+      document.querySelectorAll('a[href="' + from[net] + '"]').forEach(function (a) {
+        if (to[net]) a.setAttribute('href', to[net]); else hideContact(a);
+      });
+    });
+
+    // Numbers in running text and labels. WhatsApp's number can equal a phone's, so the
+    // text around it decides which of the two it is.
+    function waContext(str, el) { return /whatsapp/i.test(str) || (el && el.closest('a[href*="wa.me/"]')); }
+    function swapStr(str, el) {
+      return swapAll(str, waContext(str, el) ? waText : phoneText);
+    }
+    var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+    var node;
+    while ((node = walker.nextNode())) {
+      if (node.parentNode.closest('script, style')) continue;
+      var val = swapAll(swapStr(node.nodeValue, node.parentNode), handles);
+      if (val !== node.nodeValue) node.nodeValue = val;
+    }
+    document.querySelectorAll('a[aria-label]').forEach(function (a) {
+      a.setAttribute('aria-label', swapStr(a.getAttribute('aria-label'), a));
+    });
+
+    Object.keys(window.I18N || {}).forEach(function (lang) {
+      var d = window.I18N[lang];
+      Object.keys(d).forEach(function (k) { d[k] = swapStr(d[k]).split('mailto:' + from.email).join('mailto:' + to.email); });
+    });
+
+    // what search engines read
+    var ld = document.querySelector('script[type="application/ld+json"]');
+    if (ld) {
+      try {
+        var json = JSON.parse(ld.textContent);
+        json.telephone = to.phones.filter(Boolean).map(function (p) { return '+' + digits(p); });
+        json.email = to.email;
+        json.sameAs = [to.instagram, to.tiktok].filter(Boolean);
+        ld.textContent = JSON.stringify(json);
+      } catch (e) { /* leave the block as written */ }
+    }
+  }
+
   /* ---------------------------------------------------------------- boot */
 
+  applyContacts();
   initStagger();
   applyLang(initialLang());
   initReveal();

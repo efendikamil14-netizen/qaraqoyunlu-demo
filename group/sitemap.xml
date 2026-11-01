@@ -4,6 +4,7 @@
     <loc>https://qaraqoyunlugroup.az/</loc>
     <xhtml:link rel="alternate" hreflang="az" href="https://qaraqoyunlugroup.az/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://qaraqoyunlugroup.az/?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://qaraqoyunlugroup.az/?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qaraqoyunlugroup.az/"/>
     <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
@@ -13,8 +14,19 @@
     <loc>https://qaraqoyunlugroup.az/?lang=en</loc>
     <xhtml:link rel="alternate" hreflang="az" href="https://qaraqoyunlugroup.az/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://qaraqoyunlugroup.az/?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://qaraqoyunlugroup.az/?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qaraqoyunlugroup.az/"/>
     <lastmod>2026-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://qaraqoyunlugroup.az/?lang=ru</loc>
+    <xhtml:link rel="alternate" hreflang="az" href="https://qaraqoyunlugroup.az/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qaraqoyunlugroup.az/?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://qaraqoyunlugroup.az/?lang=ru"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qaraqoyunlugroup.az/"/>
+    <lastmod>2026-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

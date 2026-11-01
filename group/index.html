@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="az">
+<html lang="az" data-site="group">
 <head>
   <meta name="robots" content="noindex, nofollow">
   <meta charset="utf-8">
@@ -9,6 +9,7 @@
   <link rel="canonical" href="https://qaraqoyunlugroup.az/">
   <link rel="alternate" hreflang="az" href="https://qaraqoyunlugroup.az/">
   <link rel="alternate" hreflang="en" href="https://qaraqoyunlugroup.az/?lang=en">
+  <link rel="alternate" hreflang="ru" href="https://qaraqoyunlugroup.az/?lang=ru">
   <link rel="alternate" hreflang="x-default" href="https://qaraqoyunlugroup.az/">
   <meta name="theme-color" content="#F2EEE7">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -22,23 +23,24 @@
   <meta property="og:image" content="https://qaraqoyunlugroup.az/assets/img/metal-frame.webp">
   <meta property="og:locale" content="az_AZ">
   <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:locale:alternate" content="ru_RU">
   <meta name="twitter:card" content="summary_large_image">
 
   <link rel="preload" href="assets/fonts/archivo-latin-wdth-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/archivo-latin-ext-wdth-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/onest-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/onest-latin-ext-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" as="image" type="image/webp" fetchpriority="high" href="assets/img/metal-frame.webp" imagesrcset="assets/img/metal-frame-sm.webp 800w, assets/img/metal-frame.webp 1199w" imagesizes="(max-width: 1023px) calc(100vw - 32px), 40vw">
+  <link rel="preload" as="image" type="image/webp" fetchpriority="high" href="assets/img/metal-frame.webp" imagesrcset="assets/img/metal-frame-sm.webp 800w, assets/img/metal-frame.webp 1400w" imagesizes="(max-width: 1023px) calc(100vw - 32px), 40vw">
   <link rel="stylesheet" href="assets/css/fonts.css">
   <link rel="stylesheet" href="assets/css/base.css">
   <link rel="stylesheet" href="assets/css/style.css">
   <!-- Mark JS before the first style pass, so reveal elements and split headings start
        hidden instead of painting and then vanishing when core.js runs. If core.js fails,
        everything is shown again on load.
-       English visitors (?lang=en, or EN saved): the page stays hidden (.i18n-wait) until the
+       English and Russian visitors (?lang=en|ru, or EN/RU saved): the page stays hidden (.i18n-wait) until the
        deferred scripts have swapped the texts, so the Azerbaijani HTML never flashes.
        DOMContentLoaded fires right after the deferred scripts; 3 s is a safety net. -->
-  <script>(function(d){d.classList.add('js');try{var q=new URLSearchParams(location.search).get('lang'),l=q==='az'||q==='en'?q:localStorage.getItem('qq-lang');if(l==='en'){d.classList.add('i18n-wait');var go=function(){if(!d.classList.contains('i18n-wait'))return;d.classList.add('i18n-lift');d.classList.remove('i18n-wait');requestAnimationFrame(function(){requestAnimationFrame(function(){d.classList.remove('i18n-lift')})})};document.addEventListener('DOMContentLoaded',go);setTimeout(go,3000)}}catch(e){}addEventListener('load',function(){if(!window.QQ)d.classList.remove('js')})})(document.documentElement);</script>
+  <script>(function(d){d.classList.add('js');try{var q=new URLSearchParams(location.search).get('lang'),l=q==='az'||q==='en'||q==='ru'?q:localStorage.getItem('qq-lang');if(l==='en'||l==='ru'){d.classList.add('i18n-wait');var go=function(){if(!d.classList.contains('i18n-wait'))return;d.classList.add('i18n-lift');d.classList.remove('i18n-wait');requestAnimationFrame(function(){requestAnimationFrame(function(){d.classList.remove('i18n-lift')})})};document.addEventListener('DOMContentLoaded',go);setTimeout(go,3000)}}catch(e){}addEventListener('load',function(){if(!window.QQ)d.classList.remove('js')})})(document.documentElement);</script>
 
   <!-- TODO(client): placeholder — openingHours and areaServed are approved placeholders; confirm with the client. -->
   <script type="application/ld+json">
@@ -126,6 +128,12 @@
       </ul>
       <!-- mobile menu only -->
       <div class="site-nav__extra">
+        <!-- phones up to 400px: three language buttons no longer fit beside the logo, so they live here -->
+        <div class="lang-switch" role="group" aria-label="Dil seçimi" data-i18n-attr="aria-label:a11y.lang">
+          <button type="button" data-lang-switch="az" aria-label="AZ — Azərbaycan dili" data-i18n-attr="aria-label:a11y.lang.az">AZ</button>
+          <button type="button" data-lang-switch="en" aria-label="EN — English" data-i18n-attr="aria-label:a11y.lang.en">EN</button>
+          <button type="button" data-lang-switch="ru" aria-label="RU — Русский" data-i18n-attr="aria-label:a11y.lang.ru">RU</button>
+        </div>
         <p class="label site-nav__label" data-i18n="nav.reach">Birbaşa əlaqə</p>
         <a class="site-nav__contact" href="tel:+994102520373">+994 10 252 03 73</a>
         <a class="site-nav__contact" href="tel:+994552160021">+994 55 216 00 21</a>
@@ -138,6 +146,7 @@
       <div class="lang-switch" role="group" aria-label="Dil seçimi" data-i18n-attr="aria-label:a11y.lang">
         <button type="button" data-lang-switch="az" aria-label="AZ — Azərbaycan dili" data-i18n-attr="aria-label:a11y.lang.az">AZ</button>
         <button type="button" data-lang-switch="en" aria-label="EN — English" data-i18n-attr="aria-label:a11y.lang.en">EN</button>
+        <button type="button" data-lang-switch="ru" aria-label="RU — Русский" data-i18n-attr="aria-label:a11y.lang.ru">RU</button>
       </div>
       <a class="btn btn--dark btn--sm site-header__cta" href="#contact"><span data-i18n="header.cta">Qiymət təklifi alın</span><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
       <button class="nav-toggle" type="button" data-nav-toggle aria-controls="site-nav" aria-expanded="false" aria-label="Menyu" data-i18n-attr="aria-label:a11y.menu">
@@ -188,7 +197,7 @@
            first paint (no wait for JS, so it is the early LCP element).
            TODO(client): replace the brochure image with a real project photo. -->
       <figure class="hero__media">
-        <img class="hero__img" src="assets/img/metal-frame.webp" srcset="assets/img/metal-frame-sm.webp 800w, assets/img/metal-frame.webp 1199w" sizes="(max-width: 1023px) calc(100vw - 32px), 40vw" width="1199" height="1161" alt="Kran ilə metal karkas konstruksiyasının montajı" data-i18n-attr="alt:ph.frame.alt" fetchpriority="high">
+        <img class="hero__img" src="assets/img/metal-frame.webp" srcset="assets/img/metal-frame-sm.webp 800w, assets/img/metal-frame.webp 1400w" sizes="(max-width: 1023px) calc(100vw - 32px), 40vw" width="1400" height="1355" alt="Kran ilə metal karkas konstruksiyasının montajı" data-i18n-attr="alt:ph.frame.alt" fetchpriority="high">
         <span class="crop crop--tl" aria-hidden="true"></span><span class="crop crop--tr" aria-hidden="true"></span>
         <span class="crop crop--bl" aria-hidden="true"></span><span class="crop crop--br" aria-hidden="true"></span>
         <figcaption class="hero__cap"><b aria-hidden="true">01</b><span data-i18n="hero.cap">Metal konstruksiya</span></figcaption>
@@ -239,6 +248,7 @@
         <li><span data-i18n="tk.12">Konteynerlər</span></li>
         <li><span data-i18n="tk.13">Mebel</span></li>
         <li><span data-i18n="tk.14">Plastik (PVC) məmulatlar</span></li>
+        <li><span data-i18n="tk.15">Layihələndirmə</span></li>
       </ul>
       <ul class="marquee__track" aria-hidden="true">
         <li><span data-i18n="tk.1">Metal konstruksiya</span></li>
@@ -255,6 +265,7 @@
         <li><span data-i18n="tk.12">Konteynerlər</span></li>
         <li><span data-i18n="tk.13">Mebel</span></li>
         <li><span data-i18n="tk.14">Plastik (PVC) məmulatlar</span></li>
+        <li><span data-i18n="tk.15">Layihələndirmə</span></li>
       </ul>
     </div>
   </div>
@@ -329,12 +340,12 @@
       <header class="sec-head" data-reveal="fade">
         <span class="sec-head__num">02</span>
         <span class="sec-head__label" data-i18n="services.label">Xidmətlər</span>
-        <span class="sec-head__aside" data-i18n="services.aside">05 istiqamət · 14 xidmət</span>
+        <span class="sec-head__aside" data-i18n="services.aside">06 istiqamət · 15 xidmət</span>
       </header>
 
       <div class="sec-intro">
-        <h2 class="h2" id="services-title" data-split data-i18n="services.title">Beş <span class="nowrap">istiqamət —</span> bir podratçı.</h2>
-        <p class="sec-intro__text" data-reveal="up" data-i18n="services.intro">Metal, tikinti, modul tikili, qapı-pəncərə və mebel işlərini bir şirkətdən sifariş edin — hər biri sizin ölçünüzə və seçiminizə uyğun hazırlanır.</p>
+        <h2 class="h2" id="services-title" data-split data-i18n="services.title">Altı <span class="nowrap">istiqamət —</span> bir podratçı.</h2>
+        <p class="sec-intro__text" data-reveal="up" data-i18n="services.intro">Layihələndirmə, metal, tikinti, modul tikili, qapı-pəncərə və mebel işlərini bir şirkətdən sifariş edin — hər biri sizin ölçünüzə və seçiminizə uyğun hazırlanır.</p>
       </div>
 
       <div class="services__layout">
@@ -351,7 +362,7 @@
               </button>
             </h3>
             <div class="svc__panel" id="svc-panel-1" role="region" aria-labelledby="svc-btn-1">
-              <figure class="svc__photo"><img src="assets/img/gate.webp" width="835" height="634" alt="Dairəvi naxışlı metal darvaza" data-i18n-attr="alt:svc.1.alt" loading="lazy" decoding="async"></figure>
+              <figure class="svc__photo"><img src="assets/img/gate.webp" srcset="assets/img/gate-sm.webp 800w, assets/img/gate.webp 1400w" sizes="(max-width: 640px) 75vw, (max-width: 1023px) 50vw, 38vw" width="1400" height="1063" alt="Həndəsi naxışlı qara metal darvaza" data-i18n-attr="alt:svc.1.alt" loading="lazy" decoding="async"></figure>
               <p class="svc__text" data-i18n="svc.1.text">Hər layihəyə uyğun metal konstruksiyalar istehsal edib quraşdırırıq, metal konstruksiyalardan anbar, anqar, ferma və iri sənaye obyektləri tikirik. Məhəccər (perila), dəmir qapı və darvaza modelləri zövqünüzə uyğun hazırlanır, quraşdırmadan əvvəl yoxlanışdan keçir, iş səliqəli və tez icra olunur. Sizin məmnunluğunuz bizim üçün vacib amildir.</p>
               <ul class="tags">
                 <li data-i18n="svc.1.s1">Metal konstruksiya</li>
@@ -375,7 +386,7 @@
               </button>
             </h3>
             <div class="svc__panel" id="svc-panel-2" role="region" aria-labelledby="svc-btn-2">
-              <figure class="svc__photo"><img src="assets/img/metal-team.webp" srcset="assets/img/metal-team-sm.webp 800w, assets/img/metal-team.webp 1364w" sizes="calc(100vw - 32px)" width="1364" height="754" alt="Tikinti meydançasında qoruyucu dəbilqəli mütəxəssislər" data-i18n-attr="alt:ph.team.alt" loading="lazy" decoding="async"></figure>
+              <figure class="svc__photo"><img src="assets/img/metal-team.webp" srcset="assets/img/metal-team-sm.webp 800w, assets/img/metal-team.webp 1600w" sizes="calc(100vw - 32px)" width="1600" height="885" alt="Tikinti meydançasında qoruyucu dəbilqəli mütəxəssislər" data-i18n-attr="alt:ph.team.alt" loading="lazy" decoding="async"></figure>
               <p class="svc__text" data-i18n="svc.2.text">Tikinti və təmirin əsas mərhələlərini icra edirik: söküntü və kəsimdən beton qəlib, hörgü və suvaq işlərinə, dam və çardağın qurulmasından mexaniki-elektrik işlərinə qədər. Qiymət görülən işin real həcminə görə hesablanır.</p>
               <ul class="tags">
                 <li data-i18n="svc.2.s1">Təmir-tikinti</li>
@@ -389,18 +400,42 @@
             </div>
           </article>
 
-          <!-- 03 Modular -->
+          <!-- 03 Design
+               TODO(client): confirm the exact scope of the design service (sketches, drawings, which kinds of project). -->
           <article class="svc" data-svc="2">
             <h3 class="svc__head">
-              <button class="svc__toggle" type="button" id="svc-btn-3" aria-expanded="true" aria-controls="svc-panel-3">
+              <button class="svc__toggle" type="button" id="svc-btn-6" aria-expanded="true" aria-controls="svc-panel-6">
                 <span class="svc__num">03</span>
+                <svg class="icon svc__icon" aria-hidden="true"><use href="#i-ruler"/></svg>
+                <span class="svc__title" data-i18n="svc.6.title">Layihələndirmə</span>
+                <span class="svc__plus" aria-hidden="true"></span>
+              </button>
+            </h3>
+            <div class="svc__panel" id="svc-panel-6" role="region" aria-labelledby="svc-btn-6">
+              <figure class="svc__photo"><img src="assets/img/design.webp" srcset="assets/img/design-sm.webp 800w, assets/img/design.webp 1400w" sizes="calc(100vw - 32px)" width="1400" height="1000" alt="Masa üzərində tikinti çertyojları və qələm" data-i18n-attr="alt:svc.6.alt" loading="lazy" decoding="async"></figure>
+              <p class="svc__text" data-i18n="svc.6.text">İşə başlamazdan əvvəl tikilinin ölçülərini, konstruksiyasını və materiallarını sizinlə birlikdə dəqiqləşdirir, eskiz və çertyojlarda göstəririk. Beləliklə, onun necə görünəcəyini və nədən ibarət olacağını əvvəlcədən bilirsiniz.</p>
+              <ul class="tags">
+                <li data-i18n="svc.6.s1">Eskiz layihə</li>
+                <li data-i18n="svc.6.s2">Çertyojlar</li>
+                <li data-i18n="svc.6.s3">Metal konstruksiya layihəsi</li>
+                <li data-i18n="svc.6.s4">Modul tikili layihəsi</li>
+              </ul>
+              <a class="link-arrow" href="#contact" data-service-pick="design"><span data-i18n="svc.cta">Bu xidmət üzrə sorğu göndərin</span><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            </div>
+          </article>
+
+          <!-- 04 Modular -->
+          <article class="svc" data-svc="3">
+            <h3 class="svc__head">
+              <button class="svc__toggle" type="button" id="svc-btn-3" aria-expanded="true" aria-controls="svc-panel-3">
+                <span class="svc__num">04</span>
                 <svg class="icon svc__icon" aria-hidden="true"><use href="#s-module"/></svg>
                 <span class="svc__title" data-i18n="svc.3.title">Modul tikililər</span>
                 <span class="svc__plus" aria-hidden="true"></span>
               </button>
             </h3>
             <div class="svc__panel" id="svc-panel-3" role="region" aria-labelledby="svc-btn-3">
-              <figure class="svc__photo"><img src="assets/img/container-house.webp" srcset="assets/img/container-house-sm.webp 800w, assets/img/container-house.webp 957w" sizes="calc(100vw - 32px)" width="957" height="428" alt="Eyvanlı modul ev" data-i18n-attr="alt:svc.3.alt" loading="lazy" decoding="async"></figure>
+              <figure class="svc__photo"><img src="assets/img/container-house.webp" srcset="assets/img/container-house-sm.webp 800w, assets/img/container-house.webp 1600w" sizes="calc(100vw - 32px)" width="1600" height="716" alt="Eyvanlı modul ev" data-i18n-attr="alt:svc.3.alt" loading="lazy" decoding="async"></figure>
               <p class="svc__text" data-i18n="svc.3.text">Yüngül polad karkaslı konteyner və mobil ofislər asan quraşdırılır, rahat daşınır və ehtiyac olduqda üst-üstə qoyularaq genişləndirilir. Santexnika və elektrik xətləri sendviç panellərin içində gizlədilir.</p>
               <ul class="tags">
                 <li data-i18n="svc.3.s1">Konteynerlər</li>
@@ -411,18 +446,18 @@
             </div>
           </article>
 
-          <!-- 04 Doors & windows -->
-          <article class="svc" data-svc="3">
+          <!-- 05 Doors & windows -->
+          <article class="svc" data-svc="4">
             <h3 class="svc__head">
               <button class="svc__toggle" type="button" id="svc-btn-4" aria-expanded="true" aria-controls="svc-panel-4">
-                <span class="svc__num">04</span>
+                <span class="svc__num">05</span>
                 <svg class="icon svc__icon" aria-hidden="true"><use href="#s-window"/></svg>
                 <span class="svc__title" data-i18n="svc.4.title">Qapı, pəncərə və şüşə sistemləri</span>
                 <span class="svc__plus" aria-hidden="true"></span>
               </button>
             </h3>
             <div class="svc__panel" id="svc-panel-4" role="region" aria-labelledby="svc-btn-4">
-              <figure class="svc__photo"><img src="assets/img/window.webp" srcset="assets/img/window-sm.webp 800w, assets/img/window.webp 971w" sizes="calc(100vw - 32px)" width="971" height="565" alt="Tünd profilli açıq pəncərə" data-i18n-attr="alt:svc.4.alt" loading="lazy" decoding="async"></figure>
+              <figure class="svc__photo"><img src="assets/img/window.webp" srcset="assets/img/window-sm.webp 800w, assets/img/window.webp 1400w" sizes="calc(100vw - 32px)" width="1400" height="815" alt="Tünd profilli pəncərə sistemi" data-i18n-attr="alt:svc.4.alt" loading="lazy" decoding="async"></figure>
               <p class="svc__text" data-i18n="svc.4.text">Yerli və idxal profillərdən istənilən ölçü və formada plastik (PVC) və alüminium qapı-pəncərələr hazırlayırıq. Duş kabinələri, alüminium məhəccərlər, pilləkənlər və arakəsmələr hazırlayır, vitraj pəncərələr quraşdırırıq.</p>
               <ul class="tags">
                 <li data-i18n="svc.4.s1">PVC qapı və pəncərələr</li>
@@ -437,18 +472,18 @@
             </div>
           </article>
 
-          <!-- 05 Furniture -->
-          <article class="svc" data-svc="4">
+          <!-- 06 Furniture -->
+          <article class="svc" data-svc="5">
             <h3 class="svc__head">
               <button class="svc__toggle" type="button" id="svc-btn-5" aria-expanded="true" aria-controls="svc-panel-5">
-                <span class="svc__num">05</span>
+                <span class="svc__num">06</span>
                 <svg class="icon svc__icon" aria-hidden="true"><use href="#s-furniture"/></svg>
                 <span class="svc__title" data-i18n="svc.5.title">Mebel istehsalı</span>
                 <span class="svc__plus" aria-hidden="true"></span>
               </button>
             </h3>
             <div class="svc__panel" id="svc-panel-5" role="region" aria-labelledby="svc-btn-5">
-              <figure class="svc__photo"><img src="assets/img/office.webp" srcset="assets/img/office-sm.webp 800w, assets/img/office.webp 939w" sizes="calc(100vw - 32px)" width="939" height="699" alt="Rəhbər kabineti üçün ofis mebeli" data-i18n-attr="alt:svc.5.alt" loading="lazy" decoding="async"></figure>
+              <figure class="svc__photo"><img src="assets/img/office.webp" srcset="assets/img/office-sm.webp 800w, assets/img/office.webp 1400w" sizes="calc(100vw - 32px)" width="1400" height="1042" alt="Rəhbər kabineti üçün ofis mebeli" data-i18n-attr="alt:svc.5.alt" loading="lazy" decoding="async"></figure>
               <p class="svc__text" data-i18n="svc.5.text">İstənilən forma və ölçüdə mətbəx mebeli, şkaf və şkaf-kupelər, divar üzlükləri və ofis mebeli hazırlayıb quraşdırırıq. Material, rəng və quruluşu siz seçirsiniz.</p>
               <ul class="tags">
                 <li data-i18n="svc.5.s1">Mətbəx mebeli</li>
@@ -465,15 +500,16 @@
         <!-- Desktop: sticky photo that follows the active service line (decorative duplicate) -->
         <div class="svc-media" aria-hidden="true">
           <div class="svc-media__frame">
-            <img class="svc-media__img is-active" src="assets/img/gate.webp" width="835" height="634" alt="" loading="lazy" decoding="async">
-            <img class="svc-media__img" src="assets/img/metal-team.webp" srcset="assets/img/metal-team-sm.webp 800w, assets/img/metal-team.webp 1364w" sizes="30vw" width="1364" height="754" alt="" loading="lazy" decoding="async">
-            <img class="svc-media__img" src="assets/img/container-house.webp" srcset="assets/img/container-house-sm.webp 800w, assets/img/container-house.webp 957w" sizes="30vw" width="957" height="428" style="object-position: 38% 50%" alt="" loading="lazy" decoding="async">
-            <img class="svc-media__img" src="assets/img/window.webp" srcset="assets/img/window-sm.webp 800w, assets/img/window.webp 971w" sizes="30vw" width="971" height="565" alt="" loading="lazy" decoding="async">
-            <img class="svc-media__img" src="assets/img/office.webp" srcset="assets/img/office-sm.webp 800w, assets/img/office.webp 939w" sizes="30vw" width="939" height="699" alt="" loading="lazy" decoding="async">
+            <img class="svc-media__img is-active" src="assets/img/gate.webp" srcset="assets/img/gate-sm.webp 800w, assets/img/gate.webp 1400w" sizes="(max-width: 640px) 75vw, (max-width: 1023px) 50vw, 38vw" width="1400" height="1063" alt="" loading="lazy" decoding="async">
+            <img class="svc-media__img" src="assets/img/metal-team.webp" srcset="assets/img/metal-team-sm.webp 800w, assets/img/metal-team.webp 1600w" sizes="30vw" width="1600" height="885" alt="" loading="lazy" decoding="async">
+            <img class="svc-media__img" src="assets/img/design.webp" srcset="assets/img/design-sm.webp 800w, assets/img/design.webp 1400w" sizes="30vw" width="1400" height="1000" alt="" loading="lazy" decoding="async">
+            <img class="svc-media__img" src="assets/img/container-house.webp" srcset="assets/img/container-house-sm.webp 800w, assets/img/container-house.webp 1600w" sizes="30vw" width="1600" height="716" alt="" loading="lazy" decoding="async">
+            <img class="svc-media__img" src="assets/img/window.webp" srcset="assets/img/window-sm.webp 800w, assets/img/window.webp 1400w" sizes="30vw" width="1400" height="815" alt="" loading="lazy" decoding="async">
+            <img class="svc-media__img" src="assets/img/office.webp" srcset="assets/img/office-sm.webp 800w, assets/img/office.webp 1400w" sizes="30vw" width="1400" height="1042" alt="" loading="lazy" decoding="async">
             <span class="crop crop--tl"></span><span class="crop crop--tr"></span><span class="crop crop--bl"></span><span class="crop crop--br"></span>
           </div>
           <div class="svc-media__foot">
-            <span class="svc-media__count"><b data-svc-count>01</b> / 05</span>
+            <span class="svc-media__count"><b data-svc-count>01</b> / 06</span>
             <span class="svc-media__rule"></span>
             <span class="svc-media__units">m² · m³ · m · t</span>
           </div>
@@ -548,7 +584,7 @@
         <div class="modular__media">
           <figure class="modular__photo" data-reveal="clip">
             <div class="modular__photo-inner" data-parallax="0.035">
-              <img src="assets/img/container-wood.webp" srcset="assets/img/container-wood-sm.webp 800w, assets/img/container-wood.webp 890w" sizes="(max-width: 640px) 100vw, (max-width: 1023px) 60vw, 50vw" width="890" height="486" alt="Taxta üzlüklü modul konteyner tikili" data-i18n-attr="alt:mod.photo.alt" loading="lazy" decoding="async">
+              <img src="assets/img/container-wood.webp" srcset="assets/img/container-wood-sm.webp 800w, assets/img/container-wood.webp 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1023px) 60vw, 50vw" width="1600" height="874" alt="Taxta üzlüklü modul konteyner tikili" data-i18n-attr="alt:mod.photo.alt" loading="lazy" decoding="async">
             </div>
           </figure>
           <figure class="modular__drawing" data-stack>
@@ -651,97 +687,97 @@
       <ul class="gal" id="gallery-grid" data-lightbox-group>
         <li class="gal__item gal__item--tall" data-cat="metal">
           <a class="gal__link" href="assets/img/metal-frame.webp" data-lightbox>
-            <span class="gal__media"><img src="assets/img/metal-frame.webp" srcset="assets/img/metal-frame-sm.webp 800w, assets/img/metal-frame.webp 1199w" sizes="(max-width: 640px) 75vw, (max-width: 1023px) 50vw, 38vw" width="1199" height="1161" alt="Kran ilə metal karkas konstruksiyasının montajı" data-i18n-attr="alt:ph.frame.alt" loading="lazy" decoding="async"></span>
+            <span class="gal__media"><img src="assets/img/metal-frame.webp" srcset="assets/img/metal-frame-sm.webp 800w, assets/img/metal-frame.webp 1400w" sizes="(max-width: 640px) 75vw, (max-width: 1023px) 50vw, 38vw" width="1400" height="1355" alt="Kran ilə metal karkas konstruksiyasının montajı" data-i18n-attr="alt:ph.frame.alt" loading="lazy" decoding="async"></span>
             <span class="gal__cap"><span class="gal__cat" data-lightbox-cap data-i18n="gal.f.metal">Metal</span><span class="gal__title" data-lightbox-cap data-i18n="gal.1">Metal karkas montajı</span></span>
           </a>
         </li>
         <li class="gal__item" data-cat="modul">
           <a class="gal__link" href="assets/img/container-wood.webp" data-lightbox>
-            <span class="gal__media"><img src="assets/img/container-wood.webp" srcset="assets/img/container-wood-sm.webp 800w, assets/img/container-wood.webp 890w" sizes="(max-width: 640px) 50vw, (max-width: 1023px) 33vw, 25vw" width="890" height="486" alt="Taxta üzlüklü modul konteyner tikili" data-i18n-attr="alt:mod.photo.alt" loading="lazy" decoding="async"></span>
+            <span class="gal__media"><img src="assets/img/container-wood.webp" srcset="assets/img/container-wood-sm.webp 800w, assets/img/container-wood.webp 1600w" sizes="(max-width: 640px) 50vw, (max-width: 1023px) 33vw, 25vw" width="1600" height="874" alt="Taxta üzlüklü modul konteyner tikili" data-i18n-attr="alt:mod.photo.alt" loading="lazy" decoding="async"></span>
             <span class="gal__cap"><span class="gal__cat" data-lightbox-cap data-i18n="gal.f.modul">Modul</span><span class="gal__title" data-lightbox-cap data-i18n="gal.2">Taxta üzlüklü konteyner</span></span>
           </a>
         </li>
         <li class="gal__item" data-cat="mebel">
           <a class="gal__link" href="assets/img/kitchen.webp" data-lightbox>
-            <span class="gal__media"><img src="assets/img/kitchen.webp" srcset="assets/img/kitchen-sm.webp 800w, assets/img/kitchen.webp 951w" sizes="(max-width: 640px) 50vw, (max-width: 1023px) 33vw, 25vw" width="951" height="663" alt="Tünd göy rəngli klassik mətbəx mebeli" data-i18n-attr="alt:ph.kitchen.alt" loading="lazy" decoding="async"></span>
+            <span class="gal__media"><img src="assets/img/kitchen.webp" srcset="assets/img/kitchen-sm.webp 800w, assets/img/kitchen.webp 1400w" sizes="(max-width: 640px) 50vw, (max-width: 1023px) 33vw, 25vw" width="1400" height="976" alt="Tünd göy rəngli klassik mətbəx mebeli" data-i18n-attr="alt:ph.kitchen.alt" loading="lazy" decoding="async"></span>
             <span class="gal__cap"><span class="gal__cat" data-lightbox-cap data-i18n="gal.f.mebel">Mebel</span><span class="gal__title" data-lightbox-cap data-i18n="gal.3">Mətbəx mebeli</span></span>
           </a>
         </li>
         <li class="gal__item gal__item--tall" data-cat="demir">
           <a class="gal__link" href="assets/img/railing.webp" data-lightbox>
-            <span class="gal__media"><img src="assets/img/railing.webp" width="637" height="634" alt="Terrasda qara metal məhəccər" data-i18n-attr="alt:gal.4.alt" loading="lazy" decoding="async"></span>
+            <span class="gal__media"><img src="assets/img/railing.webp" srcset="assets/img/railing-sm.webp 800w, assets/img/railing.webp 1200w" sizes="(max-width: 640px) 75vw, (max-width: 1023px) 50vw, 38vw" width="1200" height="1194" alt="Terrasda qara metal məhəccər" data-i18n-attr="alt:gal.4.alt" loading="lazy" decoding="async"></span>
             <span class="gal__cap"><span class="gal__cat" data-lightbox-cap data-i18n="gal.f.demir">Dəmir işləri</span><span class="gal__title" data-lightbox-cap data-i18n="gal.4">Metal məhəccər</span></span>
           </a>
         </li>
         <li class="gal__item gal__item--wide" data-cat="metal">
           <a class="gal__link" href="assets/img/metal-team.webp" data-lightbox>
-            <span class="gal__media"><img src="assets/img/metal-team.webp" srcset="assets/img/metal-team-sm.webp 800w, assets/img/metal-team.webp 1364w" sizes="(max-width: 640px) 100vw, (max-width: 1023px) 66vw, 50vw" width="1364" height="754" alt="Tikinti meydançasında qoruyucu dəbilqəli mütəxəssislər" data-i18n-attr="alt:ph.team.alt" loading="lazy" decoding="async"></span>
+            <span class="gal__media"><img src="assets/img/metal-team.webp" srcset="assets/img/metal-team-sm.webp 800w, assets/img/metal-team.webp 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1023px) 66vw, 50vw" width="1600" height="885" alt="Tikinti meydançasında qoruyucu dəbilqəli mütəxəssislər" data-i18n-attr="alt:ph.team.alt" loading="lazy" decoding="async"></span>
             <span class="gal__cap"><span class="gal__cat" data-lightbox-cap data-i18n="gal.f.metal">Metal</span><span class="gal__title" data-lightbox-cap data-i18n="gal.6">Tikinti meydançasında metal işləri</span></span>
           </a>
         </li>
         <li class="gal__item gal__item--tall" data-cat="qapi">
           <a class="gal__link" href="assets/img/shower.webp" data-lightbox>
-            <span class="gal__media"><img src="assets/img/shower.webp" width="629" height="800" alt="Mərmər üzlüklü vanna otağında şüşə duş kabinəsi" data-i18n-attr="alt:gal.7.alt" loading="lazy" decoding="async"></span>
+            <span class="gal__media"><img src="assets/img/shower.webp" srcset="assets/img/shower-sm.webp 800w, assets/img/shower.webp 1200w" sizes="(max-width: 640px) 75vw, (max-width: 1023px) 50vw, 38vw" width="1200" height="1526" alt="Mərmər üzlüklü vanna otağında şüşə duş kabinəsi" data-i18n-attr="alt:gal.7.alt" loading="lazy" decoding="async"></span>
             <span class="gal__cap"><span class="gal__cat" data-lightbox-cap data-i18n="gal.f.qapi">Qapı-pəncərə</span><span class="gal__title" data-lightbox-cap data-i18n="gal.7">Duş kabinəsi</span></span>
           </a>
         </li>
         <li class="gal__item" data-cat="modul">
-          <a class="gal__link" href="assets/img/container-blue.webp" data-lightbox>
-            <span class="gal__media"><img src="assets/img/container-blue.webp" srcset="assets/img/container-blue-sm.webp 800w, assets/img/container-blue.webp 884w" sizes="(max-width: 640px) 50vw, (max-width: 1023px) 33vw, 25vw" width="884" height="564" alt="Mavi panelli mobil ofis konteyneri" data-i18n-attr="alt:ph.blue.alt" loading="lazy" decoding="async"></span>
+          <a class="gal__link" href="assets/img/container-office.webp" data-lightbox>
+            <span class="gal__media"><img src="assets/img/container-office.webp" srcset="assets/img/container-office-sm.webp 800w, assets/img/container-office.webp 1400w" sizes="(max-width: 640px) 50vw, (max-width: 1023px) 33vw, 25vw" width="1400" height="893" alt="Konteynerlərdən ikimərtəbəli mobil ofis bloku" data-i18n-attr="alt:ph.blue.alt" loading="lazy" decoding="async"></span>
             <span class="gal__cap"><span class="gal__cat" data-lightbox-cap data-i18n="gal.f.modul">Modul</span><span class="gal__title" data-lightbox-cap data-i18n="gal.8">Mobil ofis</span></span>
           </a>
         </li>
         <li class="gal__item" data-cat="demir">
           <a class="gal__link" href="assets/img/gate.webp" data-lightbox>
-            <span class="gal__media"><img src="assets/img/gate.webp" width="835" height="634" alt="Dairəvi naxışlı metal darvaza" data-i18n-attr="alt:svc.1.alt" loading="lazy" decoding="async"></span>
+            <span class="gal__media"><img src="assets/img/gate.webp" srcset="assets/img/gate-sm.webp 800w, assets/img/gate.webp 1400w" sizes="(max-width: 640px) 75vw, (max-width: 1023px) 50vw, 38vw" width="1400" height="1063" alt="Həndəsi naxışlı qara metal darvaza" data-i18n-attr="alt:svc.1.alt" loading="lazy" decoding="async"></span>
             <span class="gal__cap"><span class="gal__cat" data-lightbox-cap data-i18n="gal.f.demir">Dəmir işləri</span><span class="gal__title" data-lightbox-cap data-i18n="gal.9">Dəmir darvaza</span></span>
           </a>
         </li>
         <li class="gal__item gal__item--tall" data-cat="mebel">
           <a class="gal__link" href="assets/img/wardrobe.webp" data-lightbox>
-            <span class="gal__media"><img src="assets/img/wardrobe.webp" width="605" height="600" alt="Güzgülü ağ dəhliz şkafı" data-i18n-attr="alt:gal.10.alt" loading="lazy" decoding="async"></span>
+            <span class="gal__media"><img src="assets/img/wardrobe.webp" srcset="assets/img/wardrobe-sm.webp 800w, assets/img/wardrobe.webp 1200w" sizes="(max-width: 640px) 75vw, (max-width: 1023px) 50vw, 38vw" width="1200" height="1190" alt="Rəfli ağ daxili dəhliz şkafı" data-i18n-attr="alt:gal.10.alt" loading="lazy" decoding="async"></span>
             <span class="gal__cap"><span class="gal__cat" data-lightbox-cap data-i18n="gal.f.mebel">Mebel</span><span class="gal__title" data-lightbox-cap data-i18n="gal.10">Dəhliz şkafı</span></span>
           </a>
         </li>
         <li class="gal__item" data-cat="qapi">
           <a class="gal__link" href="assets/img/window.webp" data-lightbox>
-            <span class="gal__media"><img src="assets/img/window.webp" srcset="assets/img/window-sm.webp 800w, assets/img/window.webp 971w" sizes="(max-width: 640px) 50vw, (max-width: 1023px) 33vw, 25vw" width="971" height="565" alt="Tünd profilli açıq pəncərə" data-i18n-attr="alt:svc.4.alt" loading="lazy" decoding="async"></span>
+            <span class="gal__media"><img src="assets/img/window.webp" srcset="assets/img/window-sm.webp 800w, assets/img/window.webp 1400w" sizes="(max-width: 640px) 50vw, (max-width: 1023px) 33vw, 25vw" width="1400" height="815" alt="Tünd profilli pəncərə sistemi" data-i18n-attr="alt:svc.4.alt" loading="lazy" decoding="async"></span>
             <span class="gal__cap"><span class="gal__cat" data-lightbox-cap data-i18n="gal.f.qapi">Qapı-pəncərə</span><span class="gal__title" data-lightbox-cap data-i18n="gal.11">Pəncərə sistemi</span></span>
           </a>
         </li>
         <li class="gal__item" data-cat="qapi">
           <a class="gal__link" href="assets/img/glass-house.webp" data-lightbox>
-            <span class="gal__media"><img src="assets/img/glass-house.webp" srcset="assets/img/glass-house-sm.webp 800w, assets/img/glass-house.webp 995w" sizes="(max-width: 640px) 50vw, (max-width: 1023px) 33vw, 25vw" width="995" height="599" alt="Alüminium profilli geniş şüşə qapı və pəncərələr" data-i18n-attr="alt:ph.glass.alt" loading="lazy" decoding="async"></span>
+            <span class="gal__media"><img src="assets/img/glass-house.webp" srcset="assets/img/glass-house-sm.webp 800w, assets/img/glass-house.webp 1400w" sizes="(max-width: 640px) 50vw, (max-width: 1023px) 33vw, 25vw" width="1400" height="843" alt="Alüminium profilli geniş şüşə qapı və pəncərələr" data-i18n-attr="alt:ph.glass.alt" loading="lazy" decoding="async"></span>
             <span class="gal__cap"><span class="gal__cat" data-lightbox-cap data-i18n="gal.f.qapi">Qapı-pəncərə</span><span class="gal__title" data-lightbox-cap data-i18n="gal.5">Alüminium şüşə sistemləri</span></span>
           </a>
         </li>
         <li class="gal__item gal__item--tall" data-cat="demir">
           <a class="gal__link" href="assets/img/stairs.webp" data-lightbox>
-            <span class="gal__media"><img src="assets/img/stairs.webp" width="759" height="634" alt="Metal məhəccərli pilləkən" data-i18n-attr="alt:gal.13.alt" loading="lazy" decoding="async"></span>
+            <span class="gal__media"><img src="assets/img/stairs.webp" srcset="assets/img/stairs-sm.webp 800w, assets/img/stairs.webp 1200w" sizes="(max-width: 640px) 75vw, (max-width: 1023px) 50vw, 38vw" width="1200" height="1002" alt="Metal məhəccərli pilləkən" data-i18n-attr="alt:gal.13.alt" loading="lazy" decoding="async"></span>
             <span class="gal__cap"><span class="gal__cat" data-lightbox-cap data-i18n="gal.f.demir">Dəmir işləri</span><span class="gal__title" data-lightbox-cap data-i18n="gal.13">Pilləkən məhəccəri</span></span>
           </a>
         </li>
         <li class="gal__item gal__item--wide" data-cat="modul">
           <a class="gal__link" href="assets/img/container-house.webp" data-lightbox>
-            <span class="gal__media"><img src="assets/img/container-house.webp" srcset="assets/img/container-house-sm.webp 800w, assets/img/container-house.webp 957w" sizes="(max-width: 640px) 100vw, (max-width: 1023px) 66vw, 50vw" width="957" height="428" alt="Eyvanlı modul ev" data-i18n-attr="alt:svc.3.alt" loading="lazy" decoding="async"></span>
+            <span class="gal__media"><img src="assets/img/container-house.webp" srcset="assets/img/container-house-sm.webp 800w, assets/img/container-house.webp 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1023px) 66vw, 50vw" width="1600" height="716" alt="Eyvanlı modul ev" data-i18n-attr="alt:svc.3.alt" loading="lazy" decoding="async"></span>
             <span class="gal__cap"><span class="gal__cat" data-lightbox-cap data-i18n="gal.f.modul">Modul</span><span class="gal__title" data-lightbox-cap data-i18n="gal.12">Modul ev</span></span>
           </a>
         </li>
         <li class="gal__item gal__item--tall" data-cat="qapi">
           <a class="gal__link" href="assets/img/doors.webp" data-lightbox>
-            <span class="gal__media"><img src="assets/img/doors.webp" width="649" height="695" alt="Tağlı şüşəli ikitaylı qapı" data-i18n-attr="alt:gal.15.alt" loading="lazy" decoding="async"></span>
+            <span class="gal__media"><img src="assets/img/doors.webp" srcset="assets/img/doors-sm.webp 800w, assets/img/doors.webp 1200w" sizes="(max-width: 640px) 75vw, (max-width: 1023px) 50vw, 38vw" width="1200" height="1285" alt="Qara profilli şüşəli giriş qapısı" data-i18n-attr="alt:gal.15.alt" loading="lazy" decoding="async"></span>
             <span class="gal__cap"><span class="gal__cat" data-lightbox-cap data-i18n="gal.f.qapi">Qapı-pəncərə</span><span class="gal__title" data-lightbox-cap data-i18n="gal.15">Şüşəli giriş qapısı</span></span>
           </a>
         </li>
         <li class="gal__item" data-cat="mebel">
           <a class="gal__link" href="assets/img/office.webp" data-lightbox>
-            <span class="gal__media"><img src="assets/img/office.webp" srcset="assets/img/office-sm.webp 800w, assets/img/office.webp 939w" sizes="(max-width: 640px) 50vw, (max-width: 1023px) 33vw, 25vw" width="939" height="699" alt="Rəhbər kabineti üçün ofis mebeli" data-i18n-attr="alt:svc.5.alt" loading="lazy" decoding="async"></span>
+            <span class="gal__media"><img src="assets/img/office.webp" srcset="assets/img/office-sm.webp 800w, assets/img/office.webp 1400w" sizes="(max-width: 640px) 50vw, (max-width: 1023px) 33vw, 25vw" width="1400" height="1042" alt="Rəhbər kabineti üçün ofis mebeli" data-i18n-attr="alt:svc.5.alt" loading="lazy" decoding="async"></span>
             <span class="gal__cap"><span class="gal__cat" data-lightbox-cap data-i18n="gal.f.mebel">Mebel</span><span class="gal__title" data-lightbox-cap data-i18n="gal.14">Ofis mebeli</span></span>
           </a>
         </li>
         <li class="gal__item" data-cat="mebel">
           <a class="gal__link" href="assets/img/office-set.webp" data-lightbox>
-            <span class="gal__media"><img src="assets/img/office-set.webp" width="698" height="672" alt="Masa və rəflərdən ibarət ofis mebeli dəsti" data-i18n-attr="alt:gal.16.alt" loading="lazy" decoding="async"></span>
+            <span class="gal__media"><img src="assets/img/office-set.webp" srcset="assets/img/office-set-sm.webp 800w, assets/img/office-set.webp 1200w" sizes="(max-width: 640px) 75vw, (max-width: 1023px) 50vw, 38vw" width="1200" height="1155" alt="Masa və rəflərdən ibarət ofis mebeli dəsti" data-i18n-attr="alt:gal.16.alt" loading="lazy" decoding="async"></span>
             <span class="gal__cap"><span class="gal__cat" data-lightbox-cap data-i18n="gal.f.mebel">Mebel</span><span class="gal__title" data-lightbox-cap data-i18n="gal.16">Ofis mebeli dəsti</span></span>
           </a>
         </li>
@@ -937,7 +973,7 @@
           </ul>
         </div>
 
-        <form class="form" data-wa-form data-wa-number="994552160021" data-wa-intro="Salam! Saytdan müraciət:" data-wa-intro-en="Hello! Enquiry from the website:" data-reveal="up">
+        <form class="form" data-wa-form data-wa-number="994552160021" data-wa-intro="Salam! Saytdan müraciət:" data-wa-intro-en="Hello! Enquiry from the website:" data-wa-intro-ru="Здравствуйте! Заявка с сайта:" data-reveal="up">
           <div class="form__head">
             <h3 class="form__title" data-i18n="form.title">Sorğu göndərin</h3>
             <p class="form__hint" data-i18n="form.hint">* ilə işarələnmiş sahələrin doldurulması mütləqdir</p>
@@ -959,6 +995,7 @@
                 <option value="" data-i18n="form.opt.none">Xidmət seçin</option>
                 <option value="metal" data-i18n="svc.1.title">Metal konstruksiya və dəmir işləri</option>
                 <option value="build" data-i18n="svc.2.title">Tikinti və təmir</option>
+                <option value="design" data-i18n="svc.6.title">Layihələndirmə</option>
                 <option value="modular" data-i18n="svc.3.title">Modul tikililər</option>
                 <option value="doors" data-i18n="svc.4.title">Qapı, pəncərə və şüşə sistemləri</option>
                 <option value="furniture" data-i18n="svc.5.title">Mebel istehsalı</option>
@@ -1094,6 +1131,7 @@
   <a class="fab__btn fab__btn--wa" href="https://wa.me/994552160021" target="_blank" rel="noopener" aria-label="WhatsApp ilə yazın" data-i18n-attr="aria-label:fab.wa"><svg class="icon" aria-hidden="true"><use href="#i-wa"/></svg></a>
 </div>
 
+<script src="assets/js/contacts.js" defer></script>
 <script src="assets/js/i18n.js" defer></script>
 <script src="assets/js/core.js" defer></script>
 <script src="assets/js/site.js" defer></script>

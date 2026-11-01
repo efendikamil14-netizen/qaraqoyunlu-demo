@@ -74,7 +74,7 @@ main { display: block; }
 /* -------------------------------------------------------- 02 typography */
 
 .hero__title, .h2, .h3, .h4, .pullquote p, .smart__title, .closing__text,
-.build__cta-text, .panel__range, .readout__roi, .fact__num, .faq__q, .brand__name {
+.build__cta-text, .panel__range, .readout__roi, .fact__num, .faq__q, .brand__name, .brand__sub {
   font-family: var(--font-display);
   font-optical-sizing: auto;
 }
@@ -290,7 +290,7 @@ p { text-wrap: pretty; }
 .site-header .lang-switch, .site-header .lang-switch button, .nav-toggle { transition: color 0.35s, background-color 0.35s, box-shadow 0.35s; }
 .site-header.is-on-dark { color: var(--ivory); }
 .site-header.is-on-dark .brand { color: var(--brass-light); }
-.site-header.is-on-dark .brand__name, .site-header.is-on-dark .site-nav__list a { color: var(--ivory); }
+.site-header.is-on-dark .brand__name, .site-header.is-on-dark .brand__sub, .site-header.is-on-dark .site-nav__list a { color: var(--ivory); }
 .site-header.is-on-dark .brand__sub, .site-header.is-on-dark .site-nav__n { color: var(--brass-light); }
 .site-header.is-on-dark .site-header__cta { background: var(--brass); color: var(--ink-deep); }
 .site-header.is-on-dark .site-header__cta::before { background: var(--ivory); }
@@ -305,7 +305,7 @@ p { text-wrap: pretty; }
 .brand:hover .brand__mark { transform: rotate(-6deg) scale(1.04); }
 .brand__word { display: flex; flex-direction: column; line-height: 1; }
 .brand__name { font-size: 21px; font-weight: 520; letter-spacing: -0.012em; color: var(--ink); }
-.brand__sub { margin-top: 5px; font-size: 9.5px; font-weight: 600; letter-spacing: 0.4em; text-transform: uppercase; color: var(--brass-ink); }
+.brand__sub { margin-top: 2px; font-size: 21px; font-weight: 520; letter-spacing: -0.012em; color: var(--ink); }
 
 .site-nav { margin-left: auto; }
 .site-nav__list { display: flex; align-items: center; gap: 2px; }
@@ -1552,7 +1552,7 @@ a.sibling:hover .sibling__url .icon { transform: translate(3px, -3px); }
 .site-footer__top { display: grid; grid-template-columns: minmax(0, 3.4fr) minmax(0, 2.4fr) minmax(0, 3.2fr) minmax(0, 2.8fr); gap: 40px; }
 .brand--light { color: var(--brass-light); }
 .brand--light .brand__name { color: var(--ivory); }
-.brand--light .brand__sub { color: var(--brass-light); }
+.brand--light .brand__sub { color: var(--ivory); }
 .site-footer__desc { margin-top: 22px; max-width: 34ch; font-size: 15px; color: var(--ink-soft); }
 .site-footer__col .label { margin-bottom: 16px; color: var(--brass-light); }
 .site-footer ul { list-style: none; margin: 0; padding: 0; }
@@ -1684,7 +1684,7 @@ a.sibling:hover .sibling__url .icon { transform: translate(3px, -3px); }
   .nav-open .site-header { color: var(--ivory); }
   .nav-open .brand { color: var(--brass-light); }
   .nav-open .brand__name { color: var(--ivory); }
-  .nav-open .brand__sub { color: var(--brass-light); }
+  .nav-open .brand__sub { color: var(--ivory); }
   .nav-open .site-header__actions .lang-switch { opacity: 0; pointer-events: none; }
   .nav-open .nav-toggle { box-shadow: inset 0 0 0 1px rgba(246, 242, 234, 0.4); }
 
@@ -1791,7 +1791,7 @@ a.sibling:hover .sibling__url .icon { transform: translate(3px, -3px); }
 @media (max-width: 640px) {
   :root { --header-h: 66px; }
   .brand__mark { width: 38px; }
-  .brand__name { font-size: 19px; }
+  .brand__name, .brand__sub { font-size: 19px; }
   .site-header__cta { display: none; }
   .site-header__actions { gap: 8px; }
 
@@ -1922,6 +1922,11 @@ a.sibling:hover .sibling__url .icon { transform: translate(3px, -3px); }
 }
 
 /* smallest phones: the eyebrow stays on one line */
+/* three language buttons no longer fit beside the logo: on phones they stay in the menu */
+@media (max-width: 430px) {
+  .site-header__actions .lang-switch { display: none; }
+}
+
 @media (max-width: 380px) {
   .hero__eyebrow { letter-spacing: 0.08em; gap: 8px; }
   /* the longest service ("Onlayn qeydiyyat və hesabatlar") must fit the closed select; 16px keeps iOS from zooming */
